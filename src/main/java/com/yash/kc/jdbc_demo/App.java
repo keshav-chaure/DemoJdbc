@@ -24,22 +24,24 @@ public class App  {
 		    String driver = "org.apache.derby.jdbc.ClientDriver";
 		    String dbName = "AddressBookDB";
 		    String connectionURL = "jdbc:derby:testdb1;create=true";
-		    String createString = "CREATE TABLE ADDRESSBOOKTbl (NAME VARCHAR(32) NOT NULL, ADDRESS VARCHAR(50) NOT NULL)";
+	//	    String createString = "CREATE TABLE ADDRESSBOOKTbl (NAME VARCHAR(32) NOT NULL, ADDRESS VARCHAR(50) NOT NULL)";
 		    Class.forName(driver);
 
 		    conn = DriverManager.getConnection(connectionURL);
 
-		    Statement stmt = conn.createStatement();
+	/*	    Statement stmt = conn.createStatement();
 		    stmt.executeUpdate(createString);
-
+*/
+	  /*
 		    PreparedStatement psInsert = conn
 		        .prepareStatement("insert into ADDRESSBOOKTbl values (?,?)");
 
-		    psInsert.setString(1, "Keshav");
+		    psInsert.setString(1, "some");
 		    psInsert.setString(2, "Pune");
 
 		    psInsert.executeUpdate();
-
+   */
+ 
 		    Statement stmt2 = conn.createStatement();
 		    ResultSet rs = stmt2.executeQuery("select * from ADDRESSBOOKTbl");
 		    System.out.println("Addressed present in your Address Book\n\n");
@@ -49,6 +51,8 @@ public class App  {
 		      System.out.println(++num + ": Name: " + rs.getString(1) + "\n Address"
 		          + rs.getString(2));
 		    }
+		   
 		    rs.close();
+		      
 		  }
 }
